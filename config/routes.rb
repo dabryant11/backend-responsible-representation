@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   ######### USER REP ###############
   
-get '/user_rep', to: 'user_rep#index'
+get '/user_reps', to: 'user_rep#index'
 get '/user_rep/new', to: 'user_rep#new', as: 'new_user_rep'
 post '/user_rep', to: 'user_rep#create'
 get '/user_rep/:id', to: 'user_rep#show'
@@ -13,7 +13,7 @@ patch '/user_rep/:id', to: 'user_rep#update'
 
 #########  REP ###############
   
-get '/rep', to: 'rep#index'
+get '/reps', to: 'rep#index'
 get '/rep/new', to: 'rep#new', as: 'new_rep'
 post '/rep', to: 'rep#create'
 get '/rep/:id', to: 'rep#show'
@@ -23,7 +23,7 @@ patch '/rep/:id', to: 'rep#update'
 
 #########  REP BILLS ###############
   
-get '/rep_bills', to: 'rep_bills#index'
+get '/rep_billss', to: 'rep_bills#index'
 get '/rep_bills/new', to: 'rep_bills#new', as: 'new_rep_bills'
 post '/rep_bills', to: 'rep_bills#create'
 get '/rep_bills/:id', to: 'rep_bills#show'
@@ -33,7 +33,7 @@ patch '/rep_bills/:id', to: 'rep_bills#update'
 
 #########  REP COMMITTEES ###############
   
-get '/rep_committees', to: 'rep_committees#index'
+get '/rep_committeess', to: 'rep_committees#index'
 get '/rep_committees/new', to: 'rep_committees#new', as: 'new_rep_committees'
 post '/rep_committees', to: 'rep_committees#create'
 get '/rep_committees/:id', to: 'rep_committees#show'
@@ -43,7 +43,7 @@ patch '/rep_committees/:id', to: 'rep_committees#update'
 
 #########  REP CAMPAIGN FINANCE ###############
   
-get '/rep_campaign_finances', to: 'rep_campaign_finances#index'
+get '/rep_campaign_financess', to: 'rep_campaign_finances#index'
 get '/rep_campaign_finances/new', to: 'rep_campaign_finances#new', as: 'new_rep_campaign_finances'
 post '/rep_campaign_finances', to: 'rep_campaign_finances#create'
 get '/rep_campaign_finances/:id', to: 'rep_campaign_finances#show'
@@ -53,7 +53,7 @@ patch '/rep_campaign_finances/:id', to: 'rep_campaign_finances#update'
 
 #########  SENATE COMMITTEES ###############
   
-get '/senate_committees', to: 'senate_committees#index'
+get '/senate_committeess', to: 'senate_committees#index'
 get '/senate_committees/new', to: 'senate_committees#new', as: 'new_senate_committees'
 post '/senate_committees', to: 'senate_committees#create'
 get '/senate_committees/:id', to: 'senate_committees#show'
@@ -64,7 +64,7 @@ patch '/senate_committees/:id', to: 'senate_committees#update'
 
 #########  SENATE BILLS ###############
   
-get '/senate_bills', to: 'senate_bills#index'
+get '/senate_billss', to: 'senate_bills#index'
 get '/senate_bills/new', to: 'senate_bills#new', as: 'new_senate_bills'
 post '/senate_bills', to: 'senate_bills#create'
 get '/senate_bills/:id', to: 'senate_bills#show'
@@ -75,7 +75,7 @@ patch '/senate_bills/:id', to: 'senate_bills#update'
 
 #########  SENATE CAMPAIGN FINANCE ###############
   
-get '/senate_campaign_finances', to: 'senate_campaign_finances#index'
+get '/senate_campaign_financess', to: 'senate_campaign_finances#index'
 get '/senate_campaign_finances/new', to: 'senate_campaign_finances#new', as: 'new_senate_campaign_finances'
 post '/senate_campaign_finances', to: 'senate_campaign_finances#create'
 get '/senate_campaign_finances/:id', to: 'senate_campaign_finances#show'
@@ -88,7 +88,7 @@ patch '/senate_campaign_finances/:id', to: 'senate_campaign_finances#update'
 
   ######### USER SENATE ###############
   
-get '/user_senate', to: 'user_senate#index'
+get '/user_senates', to: 'user_senate#index'
 get '/user_senate/new', to: 'user_senate#new', as: 'new_user_senate'
 post '/user_senate', to: 'user_senate#create'
 get '/user_senate/:id', to: 'user_senate#show'
@@ -99,7 +99,7 @@ patch '/user_senate/:id', to: 'user_senate#update'
 
 #########  SENATE ###############
   
-get '/senate', to: 'senate#index'
+get '/senates', to: 'senate#index'
 get '/senate/new', to: 'senate#new', as: 'new_senate'
 post '/senate', to: 'senate#create'
 get '/senate/:id', to: 'senate#show'
@@ -109,7 +109,7 @@ patch '/senate/:id', to: 'senate#update'
 
 ######### USER  ###############
   
-get '/user', to: 'user#index'
+get '/users', to: 'user#index'
 get '/user/new', to: 'user#new', as: 'new_user_site'
 post '/user', to: 'user#create'
 get '/user/:id', to: 'user#show'
@@ -120,7 +120,7 @@ delete '/user/:id', to: 'user#destroy'
 
 ######### STATE BUDGET  ###############
   
-get '/state_budget', to: 'state_budget#index'
+get '/state_budgets', to: 'state_budget#index'
 get '/state_budget/new', to: 'state_budget#new', as: 'new_state_budget_site'
 post '/state_budget', to: 'state_budget#create'
 get '/state_budget/:id', to: 'state_budget#show'
@@ -131,7 +131,7 @@ delete '/state_budget/:id', to: 'state_budget#destroy'
 
 ######### STATE AGENCIES  ###############
   
-get '/state_agencies', to: 'state_agencies#index'
+get '/state_agenciess', to: 'state_agencies#index'
 get '/state_agencies/new', to: 'state_agencies#new', as: 'new_state_agencies_site'
 post '/state_agencies', to: 'state_agencies#create'
 get '/state_agencies/:id', to: 'state_agencies#show'

@@ -1,5 +1,7 @@
 class StateAgenciesController < ApplicationController
   def index
+    state_agencies = StateAgency.all
+    render json: state_agencies
   end
 
   def new
@@ -9,6 +11,8 @@ class StateAgenciesController < ApplicationController
   end
 
   def show
+    state_agency = StateAgency.find(params[:id])
+    render json: state_agency
   end
 
   def edit
@@ -19,4 +23,11 @@ class StateAgenciesController < ApplicationController
 
   def delete
   end
+
+
+  private
+  def state_agency_params
+      params.permit(:id, :name, :website, :director, :image)
+  end
+
 end

@@ -46,7 +46,7 @@
 # RepCampaignFinance.create(contributor:, amount:, affiliation:)
 # SenateCampaignFinance.create(contributor:, amount:, affiliation:)
 
-# MinorityBusiness.create(address:, rating:, image:, hours:, website:, twitter:, ig:, facebook:) 
+MinorityBusiness.create(name: "happy vegan", address: "1900 baldwin rd.", rating: 10, image:"https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1437680802i/25965711._UY200_.jpg", hours:"9-5", website:"happyvegan.com", twitter:"happyVegan", ig:"happyVegan", facebook:"happyVegan") 
 
 
 
