@@ -1,4 +1,4 @@
-class StateBudgetsController < ApplicationController
+class RepCampaignFinanceController < ApplicationController
   def index
   end
 

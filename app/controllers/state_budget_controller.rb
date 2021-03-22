@@ -1,5 +1,7 @@
-class UserSenatesController < ApplicationController
+class StateBudgetController < ApplicationController
   def index
+    state_budgets= StateBudget.all
+    render json: state_budgets
   end
 
   def new

@@ -1,4 +1,4 @@
-class MinorityBusinessesController < ApplicationController
+class MinorityBusinessController < ApplicationController
   def index
     minority_businesses = MinorityBusiness.all
     render json: minority_businesses

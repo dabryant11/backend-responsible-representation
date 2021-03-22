@@ -1,5 +1,7 @@
-class RepsController < ApplicationController
+class UserRepController < ApplicationController
   def index
+    user_reps = UserRep.all
+    render json: user_reps
   end
 
   def new

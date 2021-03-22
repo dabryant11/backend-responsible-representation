@@ -46,11 +46,6 @@
 # RepCampaignFinance.create(contributor:, amount:, affiliation:)
 # SenateCampaignFinance.create(contributor:, amount:, affiliation:)
 
-MinorityBusiness.create(name: "happy vegan", address: "1900 baldwin rd.", rating: 10, image:"https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1437680802i/25965711._UY200_.jpg", hours:"9-5", website:"happyvegan.com", twitter:"happyVegan", ig:"happyVegan", facebook:"happyVegan") 
-
-
-
-
 
 
 
@@ -72,7 +67,7 @@ UserSenate.create(user_id: 1, senate_id: 1)
 
 StateBudget.create(year: "2020")
 
-StateAgency.create(name: "Public Utilities Commission", website: "https://puco.ohio.gov/wps/portal/gov/puco/home", director: "Daniel R. Conway", image: "https://puco.ohio.gov/wps/wcm/connect/gov/82b9d758-3fce-49d2-ab48-13e8631f7d17/img-bios_DanConway.jpg?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_M1HGGIK0N0JO00QO9DDDDM3000-82b9d758-3fce-49d2-ab48-13e8631f7d17-napCell")
+const_sa1 = StateAgency.create(name: "Public Utilities Commission", website: "https://puco.ohio.gov/wps/portal/gov/puco/home", director: "Daniel R. Conway", image: "https://puco.ohio.gov/wps/wcm/connect/gov/82b9d758-3fce-49d2-ab48-13e8631f7d17/img-bios_DanConway.jpg?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_M1HGGIK0N0JO00QO9DDDDM3000-82b9d758-3fce-49d2-ab48-13e8631f7d17-napCell")
 StateAgency.create(name: "Youth Services", website: "https://dys.ohio.gov/wps/portal/gov/dys/home", director: "Ryan Gies", image: "https://dys.ohio.gov/wps/wcm/connect/gov/2c82467a-bc4d-4bc5-86eb-558c0400deb7/img-bios_RyanGies.png?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_M1HGGIK0N0JO00QO9DDDDM3000-2c82467a-bc4d-4bc5-86eb-558c0400deb7-n8Kl0VD")
 StateAgency.create(name: "Rehabilitation & Correction", website: "https://www.drc.ohio.gov/", director: "Annette M. Chambers-Smith", image: "https://drc.ohio.gov/Portals/0/chambers-smith.jpg")
 StateAgency.create(name: "Health", website: "https://odh.ohio.gov/wps/portal/gov/odh/home", director: "Stephanie McCloud", image: "https://governor.ohio.gov/wps/wcm/connect/gov/f63cfc68-19d3-41f6-a9af-fb3de6d3c732/1/Stephanie-McCloud.jpg?MOD=AJPERES")
@@ -81,4 +76,9 @@ StateAgency.create(name: "Mental Health & Addiction Services", website: "https:/
 StateAgency.create(name: "Transportation", website: "https://www.transportation.ohio.gov/wps/portal/gov/odot/", director: "Jack Marchbanks", image: "https://www.transportation.ohio.gov/wps/wcm/connect/gov/c3a25a48-cb68-4814-85f0-a1771ee82cbe/1/DirectorJackMarchbanks-500.jpg?MOD=AJPERES")
 StateAgency.create(name: "Job and Family Services", website: "https://jfs.ohio.gov/", director: "Kimberly Henderson", image: "https://www.fatherhood.ohio.gov/portals/0/Commissioners/images/Director%20Hall.jpg")
 StateAgency.create(name: "Medicaid", website: "https://medicaid.ohio.gov/", director: "Maureen M. Corcoran" , image: "https://medicaid.ohio.gov/portals/0/Images/Corcoran.jpg")
+
+
+MinorityBusiness.create(name: "happy vegan", address: "1900 baldwin rd.", rating: 10, image:"https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1437680802i/25965711._UY200_.jpg", hours:"9-5", website:"happyvegan.com", twitter:"happyVegan", ig:"happyVegan", facebook:"happyVegan") 
+
+
 

@@ -1,5 +1,7 @@
-class RepCommitteesController < ApplicationController
+class UserSenateController < ApplicationController
   def index
+    user_senates = UserSenate.all
+    render json: user_senates
   end
 
   def new

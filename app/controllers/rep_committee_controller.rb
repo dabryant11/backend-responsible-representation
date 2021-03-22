@@ -1,4 +1,4 @@
-class SenatesController < ApplicationController
+class RepCommitteeController < ApplicationController
   def index
   end
 
