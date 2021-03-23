@@ -10,10 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_18_170113) do
+ActiveRecord::Schema.define(version: 2021_03_18_165908) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bills", force: :cascade do |t|
+    t.integer "legislator_id"
+    t.integer "committee_id"
+    t.string "title"
+    t.string "status"
+    t.string "sponsor"
+    t.string "co_sponsor"
+    t.string "votes"
+    t.string "bill_number"
+    t.string "committee"
+    t.string "subject"
+    t.string "chamber"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "committees", force: :cascade do |t|
+    t.string "name"
+    t.string "chair"
+    t.string "vice_chair"
+    t.string "ranking_member"
+    t.string "members"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "legislators", force: :cascade do |t|
+    t.string "name"
+    t.string "district"
+    t.string "committees"
+    t.string "party"
+    t.string "email"
+    t.string "image"
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "minority_businesses", force: :cascade do |t|
     t.string "name"
@@ -25,98 +63,6 @@ ActiveRecord::Schema.define(version: 2021_03_18_170113) do
     t.string "twitter"
     t.string "ig"
     t.string "facebook"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "rep_bills", force: :cascade do |t|
-    t.integer "rep_id"
-    t.integer "rep_committee_id"
-    t.string "sponsor"
-    t.string "co_sponsor"
-    t.string "votes"
-    t.string "bill_number"
-    t.string "committee"
-    t.string "subject"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "rep_campaign_finances", force: :cascade do |t|
-    t.string "contributor"
-    t.integer "amount"
-    t.string "affiliation"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "rep_committees", force: :cascade do |t|
-    t.string "name"
-    t.string "chair"
-    t.string "vice_chair"
-    t.string "ranking_member"
-    t.string "members"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "reps", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "rep_committee_id"
-    t.string "name"
-    t.string "district"
-    t.string "hometown"
-    t.string "committees"
-    t.string "party"
-    t.string "year_elected"
-    t.string "phone_number"
-    t.string "email"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "senate_bills", force: :cascade do |t|
-    t.integer "senate_id"
-    t.integer "senate_committee_id"
-    t.string "sponsor"
-    t.string "co_sponsor"
-    t.string "votes"
-    t.string "bill_number"
-    t.string "committee"
-    t.string "subject"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "senate_campaign_finances", force: :cascade do |t|
-    t.string "contributor"
-    t.integer "amount"
-    t.string "affiliation"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "senate_committees", force: :cascade do |t|
-    t.string "name"
-    t.string "chair"
-    t.string "vice_chair"
-    t.string "ranking_member"
-    t.string "members"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "senates", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "senate_committee_id"
-    t.string "name"
-    t.string "district"
-    t.string "hometown"
-    t.string "committees"
-    t.string "party"
-    t.string "year_elected"
-    t.string "phone_number"
-    t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -136,16 +82,9 @@ ActiveRecord::Schema.define(version: 2021_03_18_170113) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "user_reps", force: :cascade do |t|
+  create_table "user_legislators", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "rep_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "user_senates", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "senate_id"
+    t.integer "legislator_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

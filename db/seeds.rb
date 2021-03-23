@@ -1,50 +1,122 @@
+User.destroy_all
+User.reset_pk_sequence
+
+UserLegislator.destroy_all
+UserLegislator.reset_pk_sequence
+
+
+Legislator.destroy_all
+Legislator.reset_pk_sequence
+
+StateBudget.destroy_all
+StateBudget.reset_pk_sequence
+
+StateAgency.destroy_all
+StateAgency.reset_pk_sequence
+
+MinorityBusiness.destroy_all
+MinorityBusiness.reset_pk_sequence
+
+Bill.destroy_all
+Bill.reset_pk_sequence
+
+Committee.destroy_all
+Committee.reset_pk_sequence
+
+
+
 
 ############# REST CLIENT API ##############
 
-# response = RestClient.get 'https://v3.openstates.org/people?page=1&per_page=50&jurisdiction=ocd-jurisdiction/country:us/state:oh/government&apikey=9c88aba1-7aa1-4f70-9d5c-cffd22cbe878'
-# reps_page_one = JSON.parse(response)
+response = RestClient.get 'https://v3.openstates.org/people?page=1&per_page=50&jurisdiction=ocd-jurisdiction/country:us/state:oh/government&apikey=9c88aba1-7aa1-4f70-9d5c-cffd22cbe878'
+reps_page_one = JSON.parse(response)
 
-# response = RestClient.get 'https://v3.openstates.org/people?page=2&per_page=50&jurisdiction=ocd-jurisdiction/country:us/state:oh/government&apikey=9c88aba1-7aa1-4f70-9d5c-cffd22cbe878'
-# reps_page_two = JSON.parse(response)
+response_two = RestClient.get 'https://v3.openstates.org/people?page=2&per_page=50&jurisdiction=ocd-jurisdiction/country:us/state:oh/government&apikey=9c88aba1-7aa1-4f70-9d5c-cffd22cbe878'
+reps_page_two = JSON.parse(response_two)
 
-# response = RestClient.get 'https://v3.openstates.org/people?page=3&per_page=50&jurisdiction=ocd-jurisdiction/country:us/state:oh/government&apikey=9c88aba1-7aa1-4f70-9d5c-cffd22cbe878'
-# reps_page_three = JSON.parse(response)
+response_three = RestClient.get 'https://v3.openstates.org/people?page=3&per_page=50&jurisdiction=ocd-jurisdiction/country:us/state:oh/government&apikey=9c88aba1-7aa1-4f70-9d5c-cffd22cbe878'
+reps_page_three = JSON.parse(response_three)
+# byebug
+# p reps_page_one
+# p reps_page_one.length
+# puts "--------------"
+#     # puts rep[0] 
+#     puts rep
+#     begin
+#         Legislator.create!( first_name: rep["given_name"],last_name: rep["family_name"], district: rep["current_role"]["district"].to_s, committees: "", party:rep["party"], email: rep["email"], image: rep["image"], title: rep["current_role"]["title"])
 
-# reps_page_one.each do |rep|
-#     puts rep[0] 
+#     rescue => exception
+#         puts "=========="
+#         puts rep
+#         puts exception
+#         puts "=========="
+#     end
+
+
+
+reps_page_one["results"].each do |rep|
+Legislator.create!( name: rep["name"], district: rep["current_role"]["district"].to_s, committees: "", party:rep["party"], email: rep["email"], image: rep["image"], title: rep["current_role"]["title"])
+end
+
+reps_page_two["results"].each do |rep|
+    # puts rep[0] 
+Legislator.create( name: rep["name"], district: rep["current_role"]["district"].to_s, committees: "", party:rep["party"], email: rep["email"], image: rep["image"], title: rep["current_role"]["title"])
+end
+
+
+reps_page_three["results"].each do |rep|
+    # puts rep[0] 
+Legislator.create( name: rep["name"], district: rep["current_role"]["district"].to_s, committees: "", party:rep["party"], email: rep["email"], image: rep["image"], title: rep["current_role"]["title"])
+end
+
+# puts reps_page_one["results"][0]["name"]
+
+# reps_page_one["results"].each do |rep|
+#     puts rep["name"]
+#     puts rep["party"]
+
+#     # puts rep["current_role"]
+#     puts rep["current_role"]["title"]
+#     puts rep["current_role"]["district"]
+
+#     puts rep["jurisdiction"]["name"]
+#     puts rep["email"]
+#     puts rep["image"]
+#     puts rep["given_name"]
+#     puts rep["family_name"]
+#     puts "---"
+
 # end
-# Site.create(address: bin["address"], borough: bin["borough"], name: bin["park_site_name"], website: "https://www1.nyc.gov/assets/dsny/site/home", latitude: bin["latitude"], longitude: bin["longitude"], rating: 0, accepted_items: "paper,cardboard, plastic, glass, cartons", image: "https://upload.wikimedia.org/wikipedia/en/0/08/DSNY_logo_2016.jpg", hours: "7am-3pm", twitter: "https://twitter.com/nycsanitation?lang=en", ig: "https://www.instagram.com/nycsanitation/?hl=en", facebook: "https://www.facebook.com/nycsanitation/")
-
-# response = RestClient.get 'https://data.cityofnewyork.us/resource/qnjm-wvu5.json'
-# array_of_textiles = JSON.parse(response)
-
-# array_of_textiles.each do |textile|
-#     # puts textile["address"]
-#     Site.create(address: textile["address"], borough: textile["borough"], name: textile["vendor_name"], website: textile["website"], latitude: textile["latitude"], longitude: textile["longitude"], rating: 0, accepted_items: textile["items_accepted"], image: "https://static.dezeen.com/uploads/2016/08/new-york-2020-skyline_dezeen_ss-852x609.jpg", hours: "9am-5pm", twitter: "https://twitter.com/wearablecollect?lang=en", ig: "https://www.instagram.com/wearablecollections/?hl=en", facebook: " https://www.facebook.com/wearablecollections/services/?ref=page_internal")
-# end
-
-# response = RestClient.get 'https://data.cityofnewyork.us/resource/wshr-5vic.json'
-# array_of_e_waste = JSON.parse(response)
-
-# array_of_e_waste.each do |waste|
-#     # puts textile["address"]
-#     Site.create(address: waste["address"], borough: waste["borocd"], name: waste["dropoff_sitename"], website: "https://www1.nyc.gov/assets/dsny/site/contact/e-waste-pickup-request", latitude: waste["latitude"], longitude: waste["longitude"], rating: 0, accepted_items: "electronics", image: "https://upload.wikimedia.org/wikipedia/commons/c/cf/Radio_City_Music_Hall_Panorama.jpg", hours: "9am-5pm", twitter: "https://twitter.com/nysdec?lang=en", ig: "https://www.instagram.com/nysdec/?hl=en", facebook: " https://www.facebook.com/NYSDEC/")
-# end
 
 
 
 
-# Rep.create(user_id:, senate_committee_id:, name:, district:, hometown:, committees:, party:, year:_elected:, phone_number:, email:)
-# Senate.create(user_id:, senate_committee_id:, name:, district:, hometown:, committees:, party:, year_elected:, phone_number:, email:)
+bill_response = RestClient.get 'https://v3.openstates.org/bills?page=1&per_page=20&created_since=2021-01-04&jurisdiction=ocd-jurisdiction/country:us/state:oh/government&apikey=9c88aba1-7aa1-4f70-9d5c-cffd22cbe878'
+bill_page_one = JSON.parse(bill_response)
 
-# RepBill.create(rep_id:, rep_committee_id:, sponsor:, co_sponsor:, votes:, bill_number:, committee:, subject:)
-# SenateBill.create(senate_id:, senate_committee_id:, sponsor:, co_sponsor:, votes:, bill_number:, committee:, subject:)
+bill_page_one["results"].each do |bill|
+    # puts rep[0] 
+    Bill.create!( legislator_id:"" , committee_id:"", chamber: bill["from_organization"]["name"], title: bill["title"], status:bill["latest_action_description"], sponsor: "", co_sponsor: "", votes:"", bill_number:bill["subject"], committee:"", subject:bill["subject"])
+end
 
-# SenateCommittee.create(name:, chair:, vice_chair:, ranking_member:, members:)
-# RepCommittee.create(name:, chair:, vice_chair:, ranking_member:, members:)
 
-# RepCampaignFinance.create(contributor:, amount:, affiliation:)
-# SenateCampaignFinance.create(contributor:, amount:, affiliation:)
+
+
+
+
+
+
+#     puts bill["subject"]
+#     puts bill["title"]
+#     puts bill["from_organization"]["name"]
+#     puts bill["subject"]
+#     puts bill["latest_action_description]
+
+
+
+
+# Committee.create(name:"", chair:"", vice_chair:"", ranking_member:"")
+
 
 
 
@@ -62,12 +134,11 @@
 
 User.create( name:"John Lewis", address: "123 Seasame St.", district: "20", image:"https://www.biography.com/.image/t_share/MTQ0NDE5ODgxMzc3MzQyNzc4/john_lewis_photo_courtesy_john_lewis_officejpg.jpg", username:"GoodTrouble614", password_digest:"abc123", email:"fakeemail@gmail.com")
 
-UserRep.create(user_id: 1, rep_id: 1)
-UserSenate.create(user_id: 1, senate_id: 1)
+
 
 StateBudget.create(year: "2020")
 
-const_sa1 = StateAgency.create(name: "Public Utilities Commission", website: "https://puco.ohio.gov/wps/portal/gov/puco/home", director: "Daniel R. Conway", image: "https://puco.ohio.gov/wps/wcm/connect/gov/82b9d758-3fce-49d2-ab48-13e8631f7d17/img-bios_DanConway.jpg?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_M1HGGIK0N0JO00QO9DDDDM3000-82b9d758-3fce-49d2-ab48-13e8631f7d17-napCell")
+StateAgency.create(name: "Public Utilities Commission", website: "https://puco.ohio.gov/wps/portal/gov/puco/home", director: "Daniel R. Conway", image: "https://puco.ohio.gov/wps/wcm/connect/gov/82b9d758-3fce-49d2-ab48-13e8631f7d17/img-bios_DanConway.jpg?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_M1HGGIK0N0JO00QO9DDDDM3000-82b9d758-3fce-49d2-ab48-13e8631f7d17-napCell")
 StateAgency.create(name: "Youth Services", website: "https://dys.ohio.gov/wps/portal/gov/dys/home", director: "Ryan Gies", image: "https://dys.ohio.gov/wps/wcm/connect/gov/2c82467a-bc4d-4bc5-86eb-558c0400deb7/img-bios_RyanGies.png?MOD=AJPERES&CACHEID=ROOTWORKSPACE.Z18_M1HGGIK0N0JO00QO9DDDDM3000-2c82467a-bc4d-4bc5-86eb-558c0400deb7-n8Kl0VD")
 StateAgency.create(name: "Rehabilitation & Correction", website: "https://www.drc.ohio.gov/", director: "Annette M. Chambers-Smith", image: "https://drc.ohio.gov/Portals/0/chambers-smith.jpg")
 StateAgency.create(name: "Health", website: "https://odh.ohio.gov/wps/portal/gov/odh/home", director: "Stephanie McCloud", image: "https://governor.ohio.gov/wps/wcm/connect/gov/f63cfc68-19d3-41f6-a9af-fb3de6d3c732/1/Stephanie-McCloud.jpg?MOD=AJPERES")
@@ -81,4 +152,8 @@ StateAgency.create(name: "Medicaid", website: "https://medicaid.ohio.gov/", dire
 MinorityBusiness.create(name: "happy vegan", address: "1900 baldwin rd.", rating: 10, image:"https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1437680802i/25965711._UY200_.jpg", hours:"9-5", website:"happyvegan.com", twitter:"happyVegan", ig:"happyVegan", facebook:"happyVegan") 
 
 
-
+UserLegislator.create(user_id: 1, legislator_id: 1)
+UserLegislator.create(user_id: 1, legislator_id: 11)
+UserLegislator.create(user_id: 1, legislator_id: 111)
+UserLegislator.create(user_id: 1, legislator_id: 16)
+UserLegislator.create(user_id: 1, legislator_id: 39)

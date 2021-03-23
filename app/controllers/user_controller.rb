@@ -4,25 +4,25 @@ class UserController < ApplicationController
     render json: users
   end
 
-  # def new
-  # end
+  def new
+  end
 
-  # def create
-  # end
+  def create
+  end
 
-  # def show
-  #   user = User.find(params[:id])
-  #   render json: user
-  # end
+  def show
+    user = User.find(params[:id])
+    render json: user
+  end
 
-  # def edit
-  # end
+  def edit
+  end
 
-  # def update
-  # end
+  def update
+  end
 
-  # def delete
-  # end
+  def delete
+  end
 
 
   private

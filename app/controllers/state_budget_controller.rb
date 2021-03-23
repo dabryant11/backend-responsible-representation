@@ -11,6 +11,8 @@ class StateBudgetController < ApplicationController
   end
 
   def show
+    state_budget = StateBudget.find(params[:id])
+    render json: state_budget
   end
 
   def edit
@@ -20,5 +22,10 @@ class StateBudgetController < ApplicationController
   end
 
   def delete
+  end
+
+  private
+  def state_budget_params
+      params.permit(:year)
   end
 end

@@ -44,3 +44,5 @@ gem 'rest-client', '~> 2.1'
 
 
 gem 'active_model_serializers'
+
+gem 'activerecord-reset-pk-sequence', '~> 0.2.0'
