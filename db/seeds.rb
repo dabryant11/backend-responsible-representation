@@ -152,8 +152,8 @@ StateAgency.create(name: "Medicaid", website: "https://medicaid.ohio.gov/", dire
 MinorityBusiness.create(name: "happy vegan", address: "1900 baldwin rd.", rating: 10, image:"https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1437680802i/25965711._UY200_.jpg", hours:"9-5", website:"happyvegan.com", twitter:"happyVegan", ig:"happyVegan", facebook:"happyVegan") 
 
 
-UserLegislator.create(user_id: 1, legislator_id: 1)
-UserLegislator.create(user_id: 1, legislator_id: 11)
-UserLegislator.create(user_id: 1, legislator_id: 111)
-UserLegislator.create(user_id: 1, legislator_id: 16)
-UserLegislator.create(user_id: 1, legislator_id: 39)
+UserLegislator.create(user_id: 1, legislator_id: 1, notes: "test1")
+UserLegislator.create(user_id: 1, legislator_id: 11, notes: "test1")
+UserLegislator.create(user_id: 1, legislator_id: 111, notes: "test1")
+UserLegislator.create(user_id: 1, legislator_id: 16, notes: "test1")
+UserLegislator.create(user_id: 1, legislator_id: 39, notes: "test1")

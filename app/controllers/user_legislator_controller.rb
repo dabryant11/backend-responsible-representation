@@ -8,6 +8,8 @@ class UserLegislatorController < ApplicationController
   end
 
   def create
+    user_legislator = UserLegislator.create(user_legislator_params)
+    render json: user_legislator
   end
 
   def show
@@ -19,12 +21,18 @@ class UserLegislatorController < ApplicationController
   end
 
   def update
+    user_legislator = UserLegislator.find(params[:id])
+    user_legislator.update(user_legislator_params)
+    render json: user_legislator
   end
 
   def delete
+    user_legislator = UserLegislator.find(params[:id])
+    user_legislator.destroy
+    render json: user_legislator
   end
   private
   def user_legislator_params
-      params.permit(:user_id, :legislator_id )
+      params.permit(:user_id, :legislator_id, :notes )
   end
 end
