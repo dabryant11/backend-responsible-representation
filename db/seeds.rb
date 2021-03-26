@@ -104,13 +104,13 @@ end
 
 
 
-HORfinanceResponse = RestClient.get 'https://api.followthemoney.org/?dt=1&s=OH&y=2019,2020&c-r-ot=H&gro=c-t-id&APIKey=f6dfbf2ee7327f659b97d19b333b1f34&mode=json'
-HORfinance = JSON.parse(HORfinanceResponse)
+# HORfinanceResponse = RestClient.get 'https://api.followthemoney.org/?dt=1&s=OH&y=2019,2020&c-r-ot=H&gro=c-t-id&APIKey=f6dfbf2ee7327f659b97d19b333b1f34&mode=json'
+# HORfinance = JSON.parse(HORfinanceResponse)
 
-HORfinance["records"].each do |finance|
-    # puts rep[0] 
-    CampaignFinance.create( donors:"" , contributions:"", chamber: )
-end
+# HORfinance["records"].each do |finance|
+#     # puts rep[0] 
+#     CampaignFinance.create( donors:"" , contributions:"", chamber: )
+# end
 
 #     puts bill["subject"]
 #     puts bill["title"]
